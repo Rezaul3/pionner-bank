@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> WElcome to the pionner  bank system </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- <div>
+    <label for=""> User name: </label>
+    <input type="text"> <br>
+    <label for=""> Password:</label>
+    <input type="password" name="" id="">
+  </div>  -->
+  <div id="login-area">
+    <h1> Welcome to  the pionner Bank </h1>
+    <div class="submit-area">
+      <h4>Login</h4>
+      <input type="text" class="form-control" placeholder="name"><br>
+      <input type="password" class="form-control" name="" id="" placeholder="password"><br>
+      <button id="login" class="btn btn-success">Enter</button>
+    </div> 
+  </div>
+  <div id="transaction-area">
+    <h1>Transaction Area </h1>
+    <div class="row">
+      <div class="col-md-4  ">
+        <div class="deposite stutas">
+          <h5> Deposite
+          </h5>
+          <h2>$ <span id="currentDeposite">00</span></h2>
+        </div>
+      </div>
+      <div class="col-md-4 ">
+        <div class="widthrow stutas">
+          <h5> Widthrow</h5>
+          <h2>$5.00</h2>
+        </div>
+        
+      </div>
+      <div class="col-md-4  ">
+        <div class="balance stutas">
+          <h5> Balance </h5>
+        <h2>$ <span id="currentBalance">1200.00</span></h2>
+        </div>
+      </div>
+    </div>
+ <div class="row">
+  <div class="col-md-6">
+    <div class="submit-area">
+      <h4> Deposite </h4>
+    <input id="deposite-amount" type="text" class="form-control " placeholder="$ amount you want to deposite"> <br>
+    <button   id="addDeposite" class="btn-success stutas "> Deposite</button></div>
+    </div>
+  <div class="col-md-6">
+   <div class="submit-area">
+    <h4> Widthrow</h4>
+    <input  id="widthrowAmount" type="text" class="form-control" placeholder="$ amount you want to Widthrow "> <br>
+    <button id="addWidthrow" class="btn-success stutas"> Widthrow</button></div>
+   </div>
+ </div>
+  </div>
+  <script>
+    const loginbtn= document.getElementById("login");
+    loginbtn.addEventListener('click', function(){
+      // console.log("click on please ");
+      const loginarea= document.getElementById('login-area');
+      loginarea.style.display='none';
+      const transactionArea= document.getElementById('transaction-area');
+      transactionArea.style.display='block';
+
+
+
+
+    })
+    //deposite button Event handler 
+const depositebtn=document.getElementById("addDeposite");
+depositebtn.addEventListener('click', function(){
+const depositeamount= document.getElementById("deposite-amount").value;
+ const depositeNumber= parseFloat(depositeamount);
+//  const currentdeposite= document.getElementById("current-deposite").innerText;
+//  const  currentdepositeNumber= parseFloat(currentdeposite);
+//  const totaldeposite=depositeNumber + currentdepositeNumber;
+//  console.log(totaldeposite);
+ //document.getElementById("current-deposite").innerText=totaldeposite;
+  const currentDeposite= document.getElementById('currentDeposite').innerText
+const currentdepositeNumber=parseFloat(currentDeposite);
+const totaldeposite= depositeNumber+currentdepositeNumber
+document.getElementById('currentDeposite').innerText=totaldeposite;
+
+
+ // This opration  is balance  find out 
+ currentBalance=document.getElementById("currentBalance").innerText;
+ const currentBalanceNumber= parseFloat(currentBalance);
+ const totalbalance= depositeNumber+currentBalanceNumber;
+ document.getElementById('currentBalance').innerText=totalbalance;
+ document.getElementById("deposite-amount").value="";
+ 
+
+
+
+})
+// widthrow button event opration 
+const widthrowbtn= document.getElementById("addWidthrow");
+widthrowbtn.addEventListener('click', function(){
+  //console.log(" this is reza")
+  const withrowNumber= getInputNumber("widthrowAmount");
+  console.log(withrowNumber);
+
+  
+})
+function getInputNumber(id){
+  const widthrowAmount= document.getElementById(id).value;
+  const withrowNumber = parseFloat(widthrowAmount);
+  return widthrowAmount;
+
+}
+
+  </script>
+    
+</body>
+</html>
